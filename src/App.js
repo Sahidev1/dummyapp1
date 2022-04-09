@@ -1,4 +1,6 @@
+import StartpagePresenter from './presenters/startpagepresenter'
 
+const changeText = (input) => console.log(input);
 
 function App() {
   return (
@@ -8,7 +10,10 @@ function App() {
           Dummy App!!! 
         </h1>
       </header>
-    </div>
+          <div>
+              <StartpagePresenter/>
+          </div>
+      </div>
   );
 }
 
