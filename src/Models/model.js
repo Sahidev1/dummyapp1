@@ -1,5 +1,5 @@
 
-function Model(text) {
+function Model(text="Hi there! :)") {
     this.text = text;
     this.observers = [];
 }
@@ -7,11 +7,11 @@ function Model(text) {
 Model.prototype.changeText = function (txt){ this.text = txt; this.notifyObservers();}
 
 Model.prototype.addObserver = function (callback) {
-    this.observers = [callback]//[...this.observers, callback];
+    this.observers = [...this.observers, callback];
 }
 
 Model.prototype.removeObserver = function(callback){
-    this.observers = this.observers.filter(cb => cb.name != callback); // possibly change this, only works if observers have unique name;
+    this.observers = this.observers.filter(cb => !(Object.is(cb, callback))); // fixed
 }
 
 Model.prototype.notifyObservers = function() {

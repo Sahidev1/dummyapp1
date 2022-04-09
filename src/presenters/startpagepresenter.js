@@ -4,7 +4,7 @@ import currModel from '../Models/model';
 import Startpage from '../views/startpage';
 
 function StartpagePresenter() {
-    const [text, changeText] = useState("hello there!");
+    const [text, changeText] = useState(currModel.text);
 
     useEffect(function () {
         function observer() { changeText(currModel.text); }

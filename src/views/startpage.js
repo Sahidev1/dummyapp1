@@ -4,7 +4,7 @@ function Startpage({text, changeText}) {
         <div>
             <p>{text} </p>
             <div>
-                <input type="text" onInput={e => changeText(e.target.value)}/>
+                <input type="text" onInput={function (e) { e.target.value === "" ? changeText("Please type something :)") : changeText(e.target.value);}}/>
             </div>
         </div>
         );

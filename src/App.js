@@ -1,7 +1,5 @@
 import StartpagePresenter from './presenters/startpagepresenter'
 
-const changeText = (input) => console.log(input);
-
 function App() {
   return (
     <div className="App">
