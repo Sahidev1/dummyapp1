@@ -1,4 +1,5 @@
 import StartpagePresenter from './presenters/startpagepresenter'
+import AnotherPagePresenter from './presenters/anotherpagepresenter'
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       </header>
           <div>
               <StartpagePresenter/>
+          </div>
+          <div>
+              <AnotherPagePresenter/>
           </div>
       </div>
   );
