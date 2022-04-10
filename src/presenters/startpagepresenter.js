@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import currModel from '../Models/model';
 import Startpage from '../views/startpage';
+import { useNavigate } from 'react-router-dom';
 
 function StartpagePresenter() {
     const [text, changeText] = useState(currModel.text);
@@ -12,7 +13,11 @@ function StartpagePresenter() {
         return function () { currModel.removeObserver(observer);}
     }, []);
 
-    return <Startpage text={text} changeText={(newText) => currModel.changeText(newText)}/>
+    const navigate = useNavigate();
+    const gotoAnotherPage = () => navigate('/anotherpage');
+
+    return <Startpage text={text} changeText={(newText) => currModel.changeText(newText)}
+        gotoAnPage={gotoAnotherPage} />
 }
 
 export default StartpagePresenter;

@@ -1,21 +1,13 @@
 import StartpagePresenter from './presenters/startpagepresenter'
 import AnotherPagePresenter from './presenters/anotherpagepresenter'
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          Dummy App!!! 
-        </h1>
-      </header>
-          <div>
-              <StartpagePresenter/>
-          </div>
-          <div>
-              <AnotherPagePresenter/>
-          </div>
-      </div>
+    return (
+        <Routes>
+            <Route path="/" element={<StartpagePresenter />} />
+            <Route path="/anotherpage" element={<AnotherPagePresenter/>}/>
+        </Routes>
   );
 }
 
