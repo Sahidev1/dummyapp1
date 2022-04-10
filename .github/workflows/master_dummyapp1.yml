@@ -4,6 +4,9 @@
 name: Build and deploy Node.js app to Azure Web App - dummyapp1
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
@@ -49,5 +52,5 @@ jobs:
         with:
           app-name: 'dummyapp1'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_36EE80AC28F142EB89DD5A8631433172 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_170751BDCBA74078837AB768E0EB705C }}
           package: .
