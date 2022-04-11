@@ -1,4 +1,4 @@
-
+//startpage
 function Startpage({text, changeText, gotoAnPage}) {
     return (
         <div>
