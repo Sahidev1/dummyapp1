@@ -1,38 +1,34 @@
 import RegisterView from "../views/registerview";
-import { signUp, useAuth } from "../firebase";
+import { logOut, signUp, useAuth } from "../firebase";
 import React, {useEffect, useRef, useState} from "react"
 import { async } from "@firebase/util";
 
 // loading state doesnt work
 function SignUpViewPresenter (){
     const [loading, setLoading] = useState(false);
-    const [signUpReq, setSignUpReq] = useState(false);
     const currentUser = useAuth();
 
     const email = useRef();
     const password = useRef();
 
-    function loadStatus (bool){
-        setLoading(bool);
-        console.log(loading);
-    }
-
     async function handleSignup(){
-        try {
+        setLoading(true);
             await signUp(email.current.value, password.current.value);
-        } catch (e){
-            console.error(e);
-        }
+        setLoading(false);
     }
-
-    
 
     async function handleLogOut(){
-        
+        setLoading(true);
+        try {
+            await logOut();
+        } catch (e){
+            alert ("error");
+        }
+        setLoading(false);
     }
 
     return <RegisterView mailRef={email} passRef={password}
-     loading={loading} signUp={handleSignup} user={currentUser}/>
+     loading={loading} signUp={handleSignup} logout={handleLogOut} user={currentUser}/>
 }
 
 export default SignUpViewPresenter;

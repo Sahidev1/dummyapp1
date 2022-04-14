@@ -1,3 +1,4 @@
+import { logOut } from "../firebase";
 
 function RegisterView ({mailRef, passRef, signUp, loading, user}){
     return (
@@ -11,8 +12,8 @@ function RegisterView ({mailRef, passRef, signUp, loading, user}){
             <div>
                  Pass <input ref={passRef} type="password"/> 
             </div>
-            <button disabled={/*user ||*/ loading} onClick={e => {signUp()}}>Sign Up</button>
-            <button disabled={!user} onClick={e => console.log("hi")}>log out</button>
+            <button disabled={user || loading} onClick={e => {signUp()}}>Sign Up</button>
+            <button disabled={!user} onClick={e => logOut()}>log out</button>
         </div>
     );
 }
