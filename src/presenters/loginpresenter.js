@@ -1,7 +1,6 @@
 import LoginView from "../views/loginview";
 import { logOut, login, useAuth } from "../firebase";
-import React, {useEffect, useRef, useState} from "react"
-import { async } from "@firebase/util";
+import React, { useRef, useState} from "react"
 
 function LoginPresenter (){
     const [loading, setLoading] = useState(false);
@@ -12,7 +11,11 @@ function LoginPresenter (){
 
     async function handleLogin(){
         setLoading(true);
+        try{
             await login(email.current.value, password.current.value);
+        } catch (error){
+            console.log("error caguth");
+        }
         setLoading(false);
     }
 
