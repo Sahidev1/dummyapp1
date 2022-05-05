@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInAnonymously, signInWithEmailAndPassword} from "firebase/auth";
 import { useEffect, useState } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -10,6 +11,7 @@ import { useEffect, useState } from "react";
 const firebaseConfig = {
   apiKey: "AIzaSyByWB_Gee6vKFV46h5yKBzGPnE3dYJdUkU",
   authDomain: "dummy-f9074.firebaseapp.com",
+  databaseURL: "https://dummy-f9074-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "dummy-f9074",
   storageBucket: "dummy-f9074.appspot.com",
   messagingSenderId: "766168577522",
@@ -19,6 +21,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export const db = getDatabase();
 const auth = getAuth(app);
 export {auth}
 

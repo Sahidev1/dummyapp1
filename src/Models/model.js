@@ -2,9 +2,14 @@
 function Model(text="Hi there! :)") {
     this.text = text;
     this.observers = [];
+    this.nr = 23;
 }
 
 Model.prototype.changeText = function (txt){ this.text = txt; this.notifyObservers();}
+
+Model.prototype.changeNr = function (nr){
+    this.nr = nr;
+}
 
 Model.prototype.addObserver = function (callback) {
     this.observers = [...this.observers, callback];
